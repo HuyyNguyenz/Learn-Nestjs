@@ -1,10 +1,15 @@
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
-import { ENV_CONFIG } from './constants/config'
+import { ValidationPipe } from '@nestjs/common'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
-  await app.listen(ENV_CONFIG.PORT)
-  console.log(`Server is running at port:${ENV_CONFIG.PORT}`)
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true
+    })
+  )
+  await app.listen(4000)
+  console.log(`Server is running at port:${4000}`)
 }
 bootstrap()
