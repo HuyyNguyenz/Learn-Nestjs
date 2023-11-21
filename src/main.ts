@@ -9,7 +9,7 @@ async function bootstrap() {
       whitelist: true
     })
   )
-  await app.listen(4000)
-  console.log(`Server is running at port:${4000}`)
+  await app.listen(process.env.PORT)
+  console.log(`Server is running at port:${process.env.PORT}`)
 }
 bootstrap()

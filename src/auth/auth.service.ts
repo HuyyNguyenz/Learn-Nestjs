@@ -1,11 +1,11 @@
 import { Injectable, ForbiddenException, NotFoundException } from '@nestjs/common'
-import { PrismaService } from 'src/prisma/prisma.service'
 import { AuthDto } from './dto'
 import * as argon2 from 'argon2'
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library'
-import { USER_MESSAGES } from 'src/constant/messages'
 import { JwtService } from '@nestjs/jwt'
 import { ConfigService } from '@nestjs/config'
+import { PrismaService } from '../prisma/prisma.service'
+import { USER_MESSAGES } from '../constant/messages'
 
 @Injectable()
 export class AuthService {
